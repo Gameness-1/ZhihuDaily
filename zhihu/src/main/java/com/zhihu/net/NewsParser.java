@@ -1,6 +1,6 @@
-package com.zhihu.http;
+package com.zhihu.net;
 
-import com.zhihu.entity.News;
+import com.zhihu.bean.News;
 
 import java.io.StringReader;
 import java.text.SimpleDateFormat;

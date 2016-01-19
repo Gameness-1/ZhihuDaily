@@ -1,4 +1,4 @@
-package com.zhihu.view;
+package com.zhihu.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,16 +14,16 @@ import com.zhihu.R;
 import com.zhihu.activity.NewsDetailActivity;
 import com.zhihu.adapter.CarouselAdapter;
 import com.zhihu.adapter.NewsAdapter;
-import com.zhihu.entity.News;
+import com.zhihu.bean.News;
 import com.zhihu.task.SelectNewsTask;
 import com.zhihu.tool.CustomeProgressDialog;
 import com.zhihu.tool.NetTools;
+import com.zhihu.view.CarouselViewPage;
+import com.zhihu.view.IndicatorLayout;
 
-import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by gameness1 on 15-11-10.
@@ -44,13 +44,21 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 			Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_main, container, false);
         isNetworkAvailable = new NetTools(getActivity()).checkNetworkState(true);
+        initPageView();
+        initData();
+
+        /*ViewGroup parent = (ViewGroup) view.getParent();
+        if (parent != null)
+            parent.removeView(view);*/
 		return view;
 	}
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        initPageView();
+    }
+
+    public void initData() {
         if (isNetworkAvailable) {
             SelectNewsTask task = new SelectNewsTask(newsAdapter);
             task.execute();
@@ -58,6 +66,7 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
             dialog.createLoadingDialog(getActivity(), "请稍等").show();
             task.setDialog(dialog);
         }
+
     }
 
     public void initPageView() {

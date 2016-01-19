@@ -1,4 +1,4 @@
-/*
+package com.zhihu.volley.toolbox;/*
  * Copyright (C) 2011 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-package com.netease.vopen.volley.toolbox;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
@@ -23,7 +22,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.netease.vopen.volley.AuthFailureError;
+import com.zhihu.volley.AuthFailureError;
+
 
 /**
  * An Authenticator that uses {@link AccountManager} to get auth

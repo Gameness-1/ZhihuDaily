@@ -1,4 +1,4 @@
-/*
+package com.zhihu.volley.toolbox;/*
  * Copyright (C) 2011 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-package com.netease.vopen.volley.toolbox;
 
-import com.netease.vopen.volley.AuthFailureError;
+import com.zhihu.volley.AuthFailureError;
 
 /**
  * An interface for interacting with auth tokens.

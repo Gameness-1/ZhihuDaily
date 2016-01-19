@@ -1,4 +1,4 @@
-/*
+package com.zhihu.volley.toolbox;/*
  * Copyright (C) 2011 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,23 +14,22 @@
  * limitations under the License.
  */
 
-package com.netease.vopen.volley.toolbox;
-
 import android.os.SystemClock;
 
-import com.netease.vopen.constants.NetConstants;
-import com.netease.vopen.volley.AuthFailureError;
-import com.netease.vopen.volley.Cache;
-import com.netease.vopen.volley.Network;
-import com.netease.vopen.volley.NetworkError;
-import com.netease.vopen.volley.NetworkResponse;
-import com.netease.vopen.volley.NoConnectionError;
-import com.netease.vopen.volley.Request;
-import com.netease.vopen.volley.RetryPolicy;
-import com.netease.vopen.volley.ServerError;
-import com.netease.vopen.volley.TimeoutError;
-import com.netease.vopen.volley.VolleyError;
-import com.netease.vopen.volley.VolleyLog;
+import com.zhihu.constants.NetConstants;
+import com.zhihu.volley.AuthFailureError;
+import com.zhihu.volley.Cache;
+import com.zhihu.volley.Network;
+import com.zhihu.volley.NetworkError;
+import com.zhihu.volley.NetworkResponse;
+import com.zhihu.volley.NoConnectionError;
+import com.zhihu.volley.Request;
+import com.zhihu.volley.RetryPolicy;
+import com.zhihu.volley.ServerError;
+import com.zhihu.volley.TimeoutError;
+import com.zhihu.volley.VolleyError;
+import com.zhihu.volley.VolleyLog;
+import com.zhihu.volley.toolbox.HttpStack;
 
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;

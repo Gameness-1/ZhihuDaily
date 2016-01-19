@@ -2,9 +2,9 @@ package com.zhihu.task;
 
 import android.os.AsyncTask;
 import com.zhihu.adapter.NewsAdapter;
-import com.zhihu.entity.News;
-import com.zhihu.http.Http;
-import com.zhihu.http.NewsParser;
+import com.zhihu.bean.News;
+import com.zhihu.net.Http;
+import com.zhihu.net.NewsParser;
 import com.zhihu.tool.CustomeProgressDialog;
 
 import java.io.IOException;

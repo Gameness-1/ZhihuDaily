@@ -1,4 +1,4 @@
-/**
+package com.zhihu.volley.toolbox; /**
  * Copyright (C) 2013 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.netease.vopen.volley.toolbox;
 
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
@@ -22,11 +21,10 @@ import android.os.Looper;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 
-import com.netease.vopen.volley.Request;
-import com.netease.vopen.volley.RequestQueue;
-import com.netease.vopen.volley.Response.ErrorListener;
-import com.netease.vopen.volley.Response.Listener;
-import com.netease.vopen.volley.VolleyError;
+import com.zhihu.volley.Request;
+import com.zhihu.volley.RequestQueue;
+import com.zhihu.volley.Response;
+import com.zhihu.volley.VolleyError;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -129,7 +127,7 @@ public class ImageLoader {
      *   or
      *   - onErrorResponse will be called if there was an error loading the image.
      */
-    public interface ImageListener extends ErrorListener {
+    public interface ImageListener extends Response.ErrorListener {
         /**
          * Listens for non-error changes to the loading of the image request.
          *
@@ -250,12 +248,12 @@ public class ImageLoader {
 
     protected Request<Bitmap> makeImageRequest(String requestUrl, int maxWidth, int maxHeight,
             ScaleType scaleType, final String cacheKey) {
-        return new ImageRequest(requestUrl, new Listener<Bitmap>() {
+        return new ImageRequest(requestUrl, new Response.Listener<Bitmap>() {
             @Override
             public void onResponse(Bitmap response) {
                 onGetImageSuccess(cacheKey, response);
             }
-        }, maxWidth, maxHeight, scaleType, Config.RGB_565, new ErrorListener() {
+        }, maxWidth, maxHeight, scaleType, Config.RGB_565, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 onGetImageError(cacheKey, error);

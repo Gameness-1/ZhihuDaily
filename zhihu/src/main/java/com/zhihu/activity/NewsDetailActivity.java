@@ -29,7 +29,7 @@ public class NewsDetailActivity extends Activity implements View.OnClickListener
     private HashMap<String, String> newsDetailsMap = new HashMap<String, String>();
     private ImageLoader imageLoader;
     private CustomeProgressDialog dialog;
-
+    //////
     private DisplayImageOptions options = new DisplayImageOptions.Builder()
             .showImageOnLoading(R.drawable.news_noresource)
             .showImageOnFail(R.drawable.news_noresource)

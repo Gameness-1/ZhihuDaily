@@ -1,11 +1,11 @@
-package com.netease.vopen.volley.toolbox;
+package com.zhihu.volley.toolbox;
 
-import com.netease.vopen.net.mutipart.MultipartEntity;
-import com.netease.vopen.util.log.PalLog;
-import com.netease.vopen.volley.AuthFailureError;
-import com.netease.vopen.volley.NetworkResponse;
-import com.netease.vopen.volley.Request;
-import com.netease.vopen.volley.Response;
+import com.zhihu.net.mutipart.MultipartEntity;
+import com.zhihu.tool.PalLog;
+import com.zhihu.volley.AuthFailureError;
+import com.zhihu.volley.NetworkResponse;
+import com.zhihu.volley.Request;
+import com.zhihu.volley.Response;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package com.zhihu.entity;
+package com.zhihu.bean;
 
 import java.util.List;
 

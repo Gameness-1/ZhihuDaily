@@ -1,4 +1,4 @@
-/*
+package com.zhihu.volley;/*
  * Copyright (C) 2011 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,9 +14,11 @@
  * limitations under the License.
  */
 
-package com.netease.vopen.volley;
 
 import android.content.Intent;
+
+import com.zhihu.volley.NetworkResponse;
+import com.zhihu.volley.VolleyError;
 
 /**
  * Error indicating that there was an authentication failure when performing a Request.

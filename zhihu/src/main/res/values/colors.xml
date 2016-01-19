@@ -8,4 +8,5 @@
     <color name="color_divider">#ffe8e8e8</color>
     <color name="text_content">#ffeeeeee</color>
     <color name="transparent">#00000000</color>
+    <color name="selected_gray">#ffdbdbdb</color>
 </resources>

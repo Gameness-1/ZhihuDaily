@@ -1,4 +1,4 @@
-/*
+package com.zhihu.volley.toolbox;/*
  * Copyright (C) 2011 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,14 +14,10 @@
  * limitations under the License.
  */
 
-package com.netease.vopen.volley.toolbox;
-
-import com.netease.vopen.volley.NetworkResponse;
-import com.netease.vopen.volley.ParseError;
-import com.netease.vopen.volley.Request;
-import com.netease.vopen.volley.Response;
-import com.netease.vopen.volley.Response.ErrorListener;
-import com.netease.vopen.volley.Response.Listener;
+import com.zhihu.volley.NetworkResponse;
+import com.zhihu.volley.ParseError;
+import com.zhihu.volley.Request;
+import com.zhihu.volley.Response;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,7 +40,7 @@ public class JsonObjectRequest extends JsonRequest<JSONObject> {
      * @param errorListener Error listener, or null to ignore errors.
      */
     public JsonObjectRequest(int method, String url, JSONObject jsonRequest,
-            Listener<JSONObject> listener, ErrorListener errorListener) {
+            Response.Listener<JSONObject> listener, Response.ErrorListener errorListener) {
         super(method, url, (jsonRequest == null) ? null : jsonRequest.toString(), listener,
                     errorListener);
     }
@@ -55,8 +51,8 @@ public class JsonObjectRequest extends JsonRequest<JSONObject> {
      *
      * @see #JsonObjectRequest(int, String, JSONObject, Listener, ErrorListener)
      */
-    public JsonObjectRequest(String url, JSONObject jsonRequest, Listener<JSONObject> listener,
-            ErrorListener errorListener) {
+    public JsonObjectRequest(String url, JSONObject jsonRequest, Response.Listener<JSONObject> listener,
+            Response.ErrorListener errorListener) {
         this(jsonRequest == null ? Request.Method.GET : Request.Method.POST, url, jsonRequest,
                 listener, errorListener);
     }

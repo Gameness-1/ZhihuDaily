@@ -1,4 +1,4 @@
-/*
+package com.zhihu.volley.toolbox;/*
  * Copyright (C) 2011 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,12 +14,10 @@
  * limitations under the License.
  */
 
-package com.netease.vopen.volley.toolbox;
-
 import android.os.SystemClock;
 
-import com.netease.vopen.volley.Cache;
-import com.netease.vopen.volley.VolleyLog;
+import com.zhihu.volley.Cache;
+import com.zhihu.volley.VolleyLog;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

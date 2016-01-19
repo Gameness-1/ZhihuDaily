@@ -1,4 +1,4 @@
-/*
+package com.zhihu.volley.toolbox;/*
  * Copyright (C) 2011 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,11 +14,9 @@
  * limitations under the License.
  */
 
-package com.netease.vopen.volley.toolbox;
-
-import com.netease.vopen.volley.Request;
-import com.netease.vopen.volley.Response;
-import com.netease.vopen.volley.VolleyError;
+import com.zhihu.volley.Request;
+import com.zhihu.volley.Response;
+import com.zhihu.volley.VolleyError;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;

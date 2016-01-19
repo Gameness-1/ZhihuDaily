@@ -1,4 +1,4 @@
-/*
+package com.zhihu.volley.toolbox;/*
  * Copyright (C) 2011 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,13 +14,10 @@
  * limitations under the License.
  */
 
-package com.netease.vopen.volley.toolbox;
-
-import com.netease.vopen.volley.NetworkResponse;
-import com.netease.vopen.volley.Request;
-import com.netease.vopen.volley.Response;
-import com.netease.vopen.volley.Response.ErrorListener;
-import com.netease.vopen.volley.Response.Listener;
+import com.zhihu.volley.NetworkResponse;
+import com.zhihu.volley.Request;
+import com.zhihu.volley.Response;
+import com.zhihu.volley.toolbox.HttpHeaderParser;
 
 import java.io.UnsupportedEncodingException;
 
@@ -28,7 +25,7 @@ import java.io.UnsupportedEncodingException;
  * A canned request for retrieving the response body at a given URL as a String.
  */
 public class StringRequest extends Request<String> {
-    private final Listener<String> mListener;
+    private final Response.Listener<String> mListener;
 
     /**
      * Creates a new request with the given method.
@@ -38,8 +35,8 @@ public class StringRequest extends Request<String> {
      * @param listener Listener to receive the String response
      * @param errorListener Error listener, or null to ignore errors
      */
-    public StringRequest(int method, String url, Listener<String> listener,
-            ErrorListener errorListener) {
+    public StringRequest(int method, String url, Response.Listener<String> listener,
+            Response.ErrorListener errorListener) {
         super(method, url, errorListener);
         mListener = listener;
     }
@@ -51,7 +48,7 @@ public class StringRequest extends Request<String> {
      * @param listener Listener to receive the String response
      * @param errorListener Error listener, or null to ignore errors
      */
-    public StringRequest(String url, Listener<String> listener, ErrorListener errorListener) {
+    public StringRequest(String url, Response.Listener<String> listener, Response.ErrorListener errorListener) {
         this(Method.GET, url, listener, errorListener);
     }
 

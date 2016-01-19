@@ -1,4 +1,4 @@
-/*
+package com.zhihu.volley.toolbox;/*
  * Copyright (C) 2011 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,19 +14,17 @@
  * limitations under the License.
  */
 
-package com.netease.vopen.volley.toolbox;
-
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
 import android.widget.ImageView.ScaleType;
 
-import com.netease.vopen.volley.DefaultRetryPolicy;
-import com.netease.vopen.volley.NetworkResponse;
-import com.netease.vopen.volley.ParseError;
-import com.netease.vopen.volley.Request;
-import com.netease.vopen.volley.Response;
-import com.netease.vopen.volley.VolleyLog;
+import com.zhihu.volley.DefaultRetryPolicy;
+import com.zhihu.volley.NetworkResponse;
+import com.zhihu.volley.ParseError;
+import com.zhihu.volley.Request;
+import com.zhihu.volley.Response;
+import com.zhihu.volley.VolleyLog;
 
 /**
  * A canned request for getting an image at a given URL and calling

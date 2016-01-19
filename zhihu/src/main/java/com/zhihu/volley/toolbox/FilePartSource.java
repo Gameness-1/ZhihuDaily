@@ -1,9 +1,6 @@
+package com.zhihu.volley.toolbox;
 
-
-package com.netease.vopen.volley.toolbox;
-
-import com.netease.vopen.net.mutipart.PartSource;
-
+import com.zhihu.net.mutipart.PartSource;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;

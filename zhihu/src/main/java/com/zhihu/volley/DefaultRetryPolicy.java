@@ -1,4 +1,4 @@
-/*
+package com.zhihu.volley;/*
  * Copyright (C) 2011 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-package com.netease.vopen.volley;
 
-import com.netease.vopen.constants.NetConstants;
+import com.zhihu.volley.RetryPolicy;
 
 /**
  * Default retry policy for requests.
@@ -36,7 +35,9 @@ public class DefaultRetryPolicy implements RetryPolicy {
 
     /** The default socket timeout in milliseconds */
 //    public static final int DEFAULT_TIMEOUT_MS = 2500;
-    public static final int DEFAULT_TIMEOUT_MS= NetConstants.sTimeout;
+
+    public final static int sTimeout = 2500;
+    public static final int DEFAULT_TIMEOUT_MS= sTimeout;
 
     /** The default number of retries */
     public static final int DEFAULT_MAX_RETRIES = 3;

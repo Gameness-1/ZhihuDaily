@@ -1,4 +1,4 @@
-/*
+package com.zhihu.volley;/*
  * Copyright (C) 2011 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-package com.netease.vopen.volley;
 
 import android.annotation.TargetApi;
 import android.net.TrafficStats;

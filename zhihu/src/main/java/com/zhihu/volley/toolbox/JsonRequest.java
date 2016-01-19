@@ -1,4 +1,4 @@
-/*
+package com.zhihu.volley.toolbox;/*
  * Copyright (C) 2011 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,14 +14,10 @@
  * limitations under the License.
  */
 
-package com.netease.vopen.volley.toolbox;
-
-import com.netease.vopen.volley.NetworkResponse;
-import com.netease.vopen.volley.Request;
-import com.netease.vopen.volley.Response;
-import com.netease.vopen.volley.Response.ErrorListener;
-import com.netease.vopen.volley.Response.Listener;
-import com.netease.vopen.volley.VolleyLog;
+import com.zhihu.volley.NetworkResponse;
+import com.zhihu.volley.Request;
+import com.zhihu.volley.Response;
+import com.zhihu.volley.VolleyLog;
 
 import java.io.UnsupportedEncodingException;
 
@@ -39,7 +35,7 @@ public abstract class JsonRequest<T> extends Request<T> {
     private static final String PROTOCOL_CONTENT_TYPE =
         String.format("application/json; charset=%s", PROTOCOL_CHARSET);
 
-    private final Listener<T> mListener;
+    private final Response.Listener<T> mListener;
     private final String mRequestBody;
 
     /**
@@ -48,13 +44,13 @@ public abstract class JsonRequest<T> extends Request<T> {
      *
      * @deprecated Use {@link #JsonRequest(int, String, String, Listener, ErrorListener)}.
      */
-    public JsonRequest(String url, String requestBody, Listener<T> listener,
-            ErrorListener errorListener) {
+    public JsonRequest(String url, String requestBody, Response.Listener<T> listener,
+            Response.ErrorListener errorListener) {
         this(Method.DEPRECATED_GET_OR_POST, url, requestBody, listener, errorListener);
     }
 
-    public JsonRequest(int method, String url, String requestBody, Listener<T> listener,
-            ErrorListener errorListener) {
+    public JsonRequest(int method, String url, String requestBody, Response.Listener<T> listener,
+            Response.ErrorListener errorListener) {
         super(method, url, errorListener);
         mListener = listener;
         mRequestBody = requestBody;

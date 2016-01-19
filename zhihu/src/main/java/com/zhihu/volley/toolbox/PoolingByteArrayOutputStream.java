@@ -1,4 +1,4 @@
-/*
+package com.zhihu.volley.toolbox;/*
  * Copyright (C) 2012 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-package com.netease.vopen.volley.toolbox;
+
+import com.zhihu.volley.toolbox.ByteArrayPool;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.netease.vopen.volley.toolbox;
+package com.zhihu.volley.toolbox;
 
-import com.netease.vopen.volley.AuthFailureError;
-import com.netease.vopen.volley.Request;
-import com.netease.vopen.volley.Request.Method;
+import com.zhihu.volley.AuthFailureError;
+import com.zhihu.volley.Request;
+import com.zhihu.volley.Request.Method;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;

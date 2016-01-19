@@ -1,4 +1,4 @@
-/*
+package com.zhihu.volley;/*
  * Copyright (C) 2011 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,9 +14,13 @@
  * limitations under the License.
  */
 
-package com.netease.vopen.volley;
 
 import android.os.Process;
+
+import com.zhihu.volley.Cache;
+import com.zhihu.volley.Request;
+import com.zhihu.volley.ResponseDelivery;
+import com.zhihu.volley.VolleyLog;
 
 import java.util.concurrent.BlockingQueue;
 

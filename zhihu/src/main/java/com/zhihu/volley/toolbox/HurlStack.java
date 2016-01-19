@@ -1,4 +1,4 @@
-/*
+package com.zhihu.volley.toolbox;/*
  * Copyright (C) 2011 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,11 +14,9 @@
  * limitations under the License.
  */
 
-package com.netease.vopen.volley.toolbox;
-
-import com.netease.vopen.volley.AuthFailureError;
-import com.netease.vopen.volley.Request;
-import com.netease.vopen.volley.Request.Method;
+import com.zhihu.volley.AuthFailureError;
+import com.zhihu.volley.Request;
+import com.zhihu.volley.Request.Method;
 
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
@@ -197,15 +195,15 @@ public class HurlStack implements HttpStack {
                     out.close();
                 }
                 break;
-            case Method.GET:
+            case Request.Method.GET:
                 // Not necessary to set the request method because connection defaults to GET but
                 // being explicit here.
                 connection.setRequestMethod("GET");
                 break;
-            case Method.DELETE:
+            case Request.Method.DELETE:
                 connection.setRequestMethod("DELETE");
                 break;
-            case Method.POST:
+            case Request.Method.POST:
                 connection.setRequestMethod("POST");
                 addBodyIfExists(connection, request);
                 break;

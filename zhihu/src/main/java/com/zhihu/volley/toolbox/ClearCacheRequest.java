@@ -1,4 +1,4 @@
-/*
+package com.zhihu.volley.toolbox;/*
  * Copyright (C) 2011 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,15 +14,13 @@
  * limitations under the License.
  */
 
-package com.netease.vopen.volley.toolbox;
-
 import android.os.Handler;
 import android.os.Looper;
 
-import com.netease.vopen.volley.Cache;
-import com.netease.vopen.volley.NetworkResponse;
-import com.netease.vopen.volley.Request;
-import com.netease.vopen.volley.Response;
+import com.zhihu.volley.Cache;
+import com.zhihu.volley.NetworkResponse;
+import com.zhihu.volley.Request;
+import com.zhihu.volley.Response;
 
 /**
  * A synthetic request used for clearing the cache.
@@ -38,7 +36,7 @@ public class ClearCacheRequest extends Request<Object> {
      * or null for none
      */
     public ClearCacheRequest(Cache cache, Runnable callback) {
-        super(Method.GET, null, null);
+        super(Request.Method.GET, null, null);
         mCache = cache;
         mCallback = callback;
     }

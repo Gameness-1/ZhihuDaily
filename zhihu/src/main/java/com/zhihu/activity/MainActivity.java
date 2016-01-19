@@ -5,15 +5,19 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.zhihu.R;
-import com.zhihu.view.MainFragment;
+import com.zhihu.adapter.NavigationDrawerAdapter;
+import com.zhihu.bean.NavigationItem;
+import com.zhihu.fragment.AsyncTaskPoolTest;
+import com.zhihu.fragment.MainFragment;
+import com.zhihu.listener.NavigationDrawerCallbacks;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,81 +29,79 @@ import java.util.TimerTask;
 /**
  * Created by gameness1 on 15-11-10.
  */
-public class MainActivity extends FragmentActivity implements AdapterView.OnItemClickListener {
+public class MainActivity extends FragmentActivity {
     private DrawerLayout mDrawerLayout;
-    private ListView drawerList;
+    private RecyclerView recyclerView;
+    private Fragment curFragment;
+    private NavigationDrawerAdapter drawerAdapter;
     private FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        init();
-        switchFragment(new MainFragment());
+        findViews();
+        initViews();
+        curFragment = new MainFragment();
+        switchFragment(curFragment);
     }
 
-    private void init() {
+    private void findViews() {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerlayout);
-        drawerList = (ListView) findViewById(R.id.left_drawer);
-        SimpleAdapter adapter = new SimpleAdapter(
-                this,
-                this.getData(),
-                R.layout.menu_left_list,
-                new String[]{"image","text"},
-                new int[]{R.id.menu_list_image, R.id.menu_list_text});
-        drawerList.setAdapter(adapter);
-        drawerList.setOnItemClickListener(this);
-        mDrawerLayout.setDrawerListener(new DrawerLayout.SimpleDrawerListener() {
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
-            }
+        recyclerView = (RecyclerView) findViewById(R.id.left_drawer);
+    }
 
+    private void initViews() {
+        drawerAdapter = new NavigationDrawerAdapter(getMenuData());
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(drawerAdapter);
+        drawerAdapter.setNavigationDrawerCallbacks(new NavigationDrawerCallbacks() {
             @Override
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
+            public void onNavigationDrawerItemSelected(int position) {
+               // drawerAdapter.notifyItemChanged(position);
+                onItemClick(position);
+                mDrawerLayout.closeDrawers();
             }
         });
         fragmentManager = getSupportFragmentManager();
     }
 
-    private List<Map<String, Object>> getData() {
-        List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-        int[] images = {
-                R.drawable.left_home,
-                R.drawable.left_categories,
-                R.drawable.left_favorite,
-                R.drawable.left_feedback,
-                R.drawable.left_setting
-        };
-        String[] textStrings = getResources().getStringArray(R.array.menuList);
-        for (int i = 0; i < textStrings.length; i++) {
-            Map<String, Object> map = new HashMap<String, Object>();
-            map.put("image", images[i]);
-            map.put("text", textStrings[i]);
-            list.add(map);
-        }
-        return list;
+    private List<NavigationItem> getMenuData() {
+        List<NavigationItem> itemList = new ArrayList<NavigationItem>();
+        String[] menuText = getResources().getStringArray(R.array.menuList);
+        itemList.add(new NavigationItem(menuText[0], getResources().getDrawable(R.drawable.left_home)));
+        itemList.add(new NavigationItem(menuText[1], getResources().getDrawable(R.drawable.left_categories)));
+        itemList.add(new NavigationItem(menuText[2], getResources().getDrawable(R.drawable.left_favorite)));
+        itemList.add(new NavigationItem(menuText[3], getResources().getDrawable(R.drawable.left_feedback)));
+        itemList.add(new NavigationItem(menuText[4], getResources().getDrawable(R.drawable.left_setting)));
+        return itemList;
     }
 
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+    public void onItemClick(int position) {
         //切换菜单点击的fragment
         Fragment contentFragment = null;
         switch (position) {
             case 0:
-
+                contentFragment = new MainFragment();
+                mDrawerLayout.closeDrawers();
                 break;
             case 1:
-
+                contentFragment = new AsyncTaskPoolTest();
+                mDrawerLayout.closeDrawers();
                 break;
             case 2:
-
-                break;
+                return;
+                //break;
             default:
-
-                break;
+                return;
+               // break;
         }
-        //switchFragment(contentFragment);
+        switchFragment(contentFragment);
+    }
+
+    public Fragment getFragment() {
+        return curFragment;
     }
 
     public void switchFragment(Fragment fragment) {

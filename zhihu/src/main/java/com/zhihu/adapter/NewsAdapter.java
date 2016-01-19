@@ -15,7 +15,7 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 import com.zhihu.R;
-import com.zhihu.entity.News;
+import com.zhihu.bean.News;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-/**
+package com.zhihu.volley.toolbox; /**
  * Copyright (C) 2013 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.netease.vopen.volley.toolbox;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -21,9 +20,9 @@ import android.util.AttributeSet;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 
-import com.netease.vopen.volley.VolleyError;
-import com.netease.vopen.volley.toolbox.ImageLoader.ImageContainer;
-import com.netease.vopen.volley.toolbox.ImageLoader.ImageListener;
+import com.zhihu.volley.VolleyError;
+import com.zhihu.volley.toolbox.ImageLoader;
+
 
 /**
  * Handles fetching an image from a URL as well as the life-cycle of the
@@ -47,7 +46,7 @@ public class NetworkImageView extends ImageView {
     private ImageLoader mImageLoader;
 
     /** Current ImageContainer. (either in-flight or finished) */
-    private ImageContainer mImageContainer;
+    private ImageLoader.ImageContainer mImageContainer;
 
     public NetworkImageView(Context context) {
         this(context, null);
@@ -147,8 +146,8 @@ public class NetworkImageView extends ImageView {
 
         // The pre-existing content of this view didn't match the current URL. Load the new image
         // from the network.
-        ImageContainer newContainer = mImageLoader.get(mUrl,
-                new ImageListener() {
+        ImageLoader.ImageContainer newContainer = mImageLoader.get(mUrl,
+                new ImageLoader.ImageListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         if (mErrorImageId != 0) {
@@ -157,7 +156,7 @@ public class NetworkImageView extends ImageView {
                     }
 
                     @Override
-                    public void onResponse(final ImageContainer response, boolean isImmediate) {
+                    public void onResponse(final ImageLoader.ImageContainer response, boolean isImmediate) {
                         // If this was an immediate response that was delivered inside of a layout
                         // pass do not set the image immediately as it will trigger a requestLayout
                         // inside of a layout. Instead, defer setting the image by posting back to

@@ -1,4 +1,4 @@
-/*
+package com.zhihu.volley.toolbox;/*
  * Copyright (C) 2011 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,13 +14,10 @@
  * limitations under the License.
  */
 
-package com.netease.vopen.volley.toolbox;
-
-import com.netease.vopen.volley.NetworkResponse;
-import com.netease.vopen.volley.ParseError;
-import com.netease.vopen.volley.Response;
-import com.netease.vopen.volley.Response.ErrorListener;
-import com.netease.vopen.volley.Response.Listener;
+import com.zhihu.volley.NetworkResponse;
+import com.zhihu.volley.ParseError;
+import com.zhihu.volley.Response;
+import com.zhihu.volley.toolbox.JsonRequest;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,7 +35,7 @@ public class JsonArrayRequest extends JsonRequest<JSONArray> {
      * @param listener Listener to receive the JSON response
      * @param errorListener Error listener, or null to ignore errors.
      */
-    public JsonArrayRequest(String url, Listener<JSONArray> listener, ErrorListener errorListener) {
+    public JsonArrayRequest(String url, Response.Listener<JSONArray> listener, Response.ErrorListener errorListener) {
         super(Method.GET, url, null, listener, errorListener);
     }
 
@@ -52,7 +49,7 @@ public class JsonArrayRequest extends JsonRequest<JSONArray> {
      * @param errorListener Error listener, or null to ignore errors.
      */
     public JsonArrayRequest(int method, String url, JSONArray jsonRequest,
-                            Listener<JSONArray> listener, ErrorListener errorListener) {
+                            Response.Listener<JSONArray> listener, Response.ErrorListener errorListener) {
         super(method, url, (jsonRequest == null) ? null : jsonRequest.toString(), listener,
                 errorListener);
     }

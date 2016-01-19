@@ -1,4 +1,4 @@
-/*
+package com.zhihu.volley.toolbox;/*
  * Copyright (C) 2012 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,9 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-package com.netease.vopen.volley.toolbox;
-
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -24,9 +21,9 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
 
-import com.netease.vopen.volley.ExecutorDelivery;
-import com.netease.vopen.volley.Network;
-import com.netease.vopen.volley.RequestQueue;
+import com.zhihu.volley.ExecutorDelivery;
+import com.zhihu.volley.Network;
+import com.zhihu.volley.RequestQueue;
 
 import java.io.File;
 
