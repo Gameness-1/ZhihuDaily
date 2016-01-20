@@ -71,7 +71,6 @@ public class NewsAdapter extends BaseAdapter {
         News newItem = getItem(position);
         holder.title.setText(newItem.getTitle());
         holder.image.setImageURI(Uri.parse(newItem.getImgUrl()));
-        ///
         return convertView;
     }
 
