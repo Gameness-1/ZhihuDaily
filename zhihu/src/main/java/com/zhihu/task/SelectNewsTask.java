@@ -1,10 +1,13 @@
 package com.zhihu.task;
 
 import android.os.AsyncTask;
+
+import com.zhihu.ZhihuApp;
 import com.zhihu.adapter.NewsAdapter;
 import com.zhihu.bean.News;
 import com.zhihu.net.Http;
 import com.zhihu.net.NewsParser;
+import com.zhihu.request.cache.ZhihuCache;
 import com.zhihu.tool.CustomeProgressDialog;
 
 import java.io.IOException;
@@ -52,6 +55,8 @@ public class SelectNewsTask extends AsyncTask<Void, Void, List<News>>{
 
     @Override
     protected void onPostExecute(List<News> newsList) {
+        if (newsList != null)
+            ZhihuCache.saveNewList(newsList);
         adapter.refreshNewsList(newsList);
         if (finishListener != null)
             finishListener.afterTaskFinish();

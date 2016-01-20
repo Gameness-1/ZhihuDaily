@@ -15,6 +15,7 @@ import com.zhihu.activity.NewsDetailActivity;
 import com.zhihu.adapter.CarouselAdapter;
 import com.zhihu.adapter.NewsAdapter;
 import com.zhihu.bean.News;
+import com.zhihu.request.cache.ZhihuCache;
 import com.zhihu.task.SelectNewsTask;
 import com.zhihu.tool.CustomeProgressDialog;
 import com.zhihu.tool.NetTools;
@@ -24,6 +25,7 @@ import com.zhihu.view.IndicatorLayout;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by gameness1 on 15-11-10.
@@ -59,12 +61,15 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     }
 
     public void initData() {
+        List<News> newsList = ZhihuCache.getNewList();
+        if (newsList != null && newsList.size() > 0)
+            newsAdapter.refreshNewsList(newsList);
         if (isNetworkAvailable) {
             SelectNewsTask task = new SelectNewsTask(newsAdapter);
             task.execute();
-            dialog = new CustomeProgressDialog();
+            /*dialog = new CustomeProgressDialog();
             dialog.createLoadingDialog(getActivity(), "请稍等").show();
-            task.setDialog(dialog);
+            task.setDialog(dialog);*/
         }
 
     }
@@ -112,7 +117,7 @@ public class MainFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent(getActivity(), NewsDetailActivity.class);
         HashMap<String, String> newsDetailsMap = new HashMap<String, String>();
-        News newItem = newsAdapter.getItem(position);
+        News newItem = newsAdapter.getItem(position - 1);
         newsDetailsMap.put("title", newItem.getTitle());
         newsDetailsMap.put("url", newItem.getUrl());
         newsDetailsMap.put("date", newItem.getPubDate());

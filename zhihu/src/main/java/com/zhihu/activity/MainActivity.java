@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.zhihu.R;
 import com.zhihu.adapter.NavigationDrawerAdapter;
 import com.zhihu.bean.NavigationItem;

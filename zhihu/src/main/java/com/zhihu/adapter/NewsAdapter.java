@@ -2,6 +2,7 @@ package com.zhihu.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -30,15 +32,6 @@ public class NewsAdapter extends BaseAdapter {
     private List<News> newsList;
     private LayoutInflater inflater;
     private ImageLoader imageLoader;
-
-    private DisplayImageOptions options = new DisplayImageOptions.Builder()
-            .showImageOnLoading(R.drawable.ic_noresource)
-            .showImageOnFail(R.drawable.ic_noresource)
-            .showImageForEmptyUri(R.drawable.ic_noresource)
-            .cacheInMemory(true)
-            .cacheOnDisk(true)
-            .considerExifParams(true)
-            .build();
 
     public NewsAdapter(Context context){
         this.context = context;
@@ -69,7 +62,7 @@ public class NewsAdapter extends BaseAdapter {
         if (convertView == null) {
             holder = new ViewHolder();
             convertView = inflater.inflate(R.layout.news_list_item, null);
-            holder.image = (ImageView) convertView.findViewById(R.id.news_image);
+            holder.image = (SimpleDraweeView) convertView.findViewById(R.id.news_image);
             holder.title = (TextView) convertView.findViewById(R.id.news_title);
             convertView.setTag(holder);
         } else {
@@ -77,7 +70,7 @@ public class NewsAdapter extends BaseAdapter {
         }
         News newItem = getItem(position);
         holder.title.setText(newItem.getTitle());
-        imageLoader.displayImage(newItem.getImgUrl(), holder.image, options, new AnimateFirstDisplayListener());
+        holder.image.setImageURI(Uri.parse(newItem.getImgUrl()));
         return convertView;
     }
 
@@ -95,7 +88,7 @@ public class NewsAdapter extends BaseAdapter {
     }
 
     public class ViewHolder {
-        private ImageView image = null;
+        private SimpleDraweeView image = null;
         private TextView title = null;
     }
 
